@@ -12,6 +12,8 @@ TEST_CASE("infers the breach according to limits") {
 }
 
 TEST_CASE("classify Temperature breach with different value") {
+	createCoolingLimitsVector();
+	createalertTargetFuncPtrVector();
 	REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,20) == NORMAL);
 	REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, -20) == TOO_LOW);
 	REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 40) == TOO_HIGH);
