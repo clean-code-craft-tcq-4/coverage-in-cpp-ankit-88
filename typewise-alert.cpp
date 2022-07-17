@@ -11,11 +11,6 @@ void createCoolingLimitsVector()
 
     // Elements inside Vector to be assigned in same order as ENUM Cooling-Type elements.
     CoolingLimitVector = { passiveCoolingLimit, hiActiveCoolingLimit, midActiveCoolingLimit };
-
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << "current Lower Limit :" << CoolingLimitVector.at(i)->getLowerLimit() << "     current Upper Limit :" << CoolingLimitVector.at(i)->getUpperLimit()<< std::endl;
-    }
 }
 void createalertTargetFuncPtrVector()
 {
@@ -41,7 +36,6 @@ Limits* getLimits(CoolingType coolingType)
 BreachType classifyTemperatureBreach( CoolingType coolingType, double temperatureInC)
 {
     Limits* currentCoolingLimit = getLimits(coolingType);
-    std::cout << "inside classify gotlimit as" << currentCoolingLimit->lowerLimit << " " << currentCoolingLimit->upperLimit << std::endl;
     return inferBreach(temperatureInC, currentCoolingLimit->lowerLimit, currentCoolingLimit->upperLimit);
 }
 
@@ -50,15 +44,11 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
     createCoolingLimitsVector();
     createalertTargetFuncPtrVector();
     BreachType breachType = classifyTemperatureBreach( batteryChar.coolingType, temperatureInC);
-    std::cout << "received breach :" << breachType<<std::endl;
-    std::cout << "calling using fptr \n";
     (* (alertTargetFuncPtrVector.at(alertTarget)))(breachType);
 }
 
 void sendToController(BreachType breachType) 
 {
-    std::cout << "inside controller caller\n";
-    
     const unsigned short header = 0xfeed;
     std::string message = constructMessage(header, breachType);
     printToConsole(message);
@@ -66,7 +56,6 @@ void sendToController(BreachType breachType)
 
 void sendToEmail(BreachType breachType) 
 {
-    std::cout << "inside email alert \n";
     const char* recepient = "a.b@c.com";
     std::string message = constructMessage(recepient, breachType);
     printToConsole(message);
