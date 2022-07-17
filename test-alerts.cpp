@@ -31,5 +31,5 @@ TEST_CASE("classify Temperature breach with different value") {
 }
 
 TEST_CASE("Test construct message function for email Alert") {
-	REQUIRE(strcmp(constructMessage("abc@gmail.com", TOO_HIGH) == "To:abc@gmail.com\nHi, the temperature is too High \n") == 0);
+	REQUIRE((constructMessage("abc@gmail.com", TOO_HIGH)).compare("To:abc@gmail.com\nHi, the temperature is too High \n") == 0);
 }
