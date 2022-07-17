@@ -29,3 +29,7 @@ TEST_CASE("classify Temperature breach with different value") {
 	REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 50) == TOO_HIGH);
 
 }
+
+TEST_CASE("Test construct message function for email Alert") {
+	REQUIRE(constructMessage("abc@gmail.com", TOO_HIGH) == "To:abc@gmail.com\nHi, the temperature is too High \n");
+}
