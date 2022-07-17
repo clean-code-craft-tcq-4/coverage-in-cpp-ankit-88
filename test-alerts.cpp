@@ -3,8 +3,8 @@
 #include "test/catch.hpp"
 #include "typewise-alert.h"
 
-createCoolingLimitsVector();
-createalertTargetFuncPtrVector();
+//createCoolingLimitsVector();
+//createalertTargetFuncPtrVector();
 TEST_CASE("infers the breach according to limits") {
 	REQUIRE(inferBreach(12, 20, 30) == TOO_LOW);
 	REQUIRE(inferBreach(40, 20, 30) == TOO_HIGH);
@@ -12,9 +12,9 @@ TEST_CASE("infers the breach according to limits") {
 }
 
 TEST_CASE("classify Temperature breach with different value") {
-	//createCoolingLimitsVector();
-	//createalertTargetFuncPtrVector();
-	BatteryCharacter batteryChar {NORMAL,"LI-ION"};
+	createCoolingLimitsVector();
+	createalertTargetFuncPtrVector();
+	//BatteryCharacter batteryChar {PASSIVE_COOLING,"LI-ION"};
 	checkAndAlert(TO_CONTROLLER, batteryChar, 20) ;
 	REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,20) == NORMAL);
 	REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, -20) == TOO_LOW);
