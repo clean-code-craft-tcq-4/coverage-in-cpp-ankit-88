@@ -42,58 +42,6 @@ struct Limits {
 	}
 };
 
-
-/*class CoolingLimits
-{
-public:
-	virtual Limits& setlimit() = 0;
-};
-
-class PassiveCoolingLimit : public CoolingLimits
-{
-	const int lower_limit = 0;
-	const int upper_limit = 35;
-public:
-	Limits l;
-	Limits& setlimit()
-	{
-		l.lowerLimit = lower_limit;
-		l.upperLimit = upper_limit;
-		return l;
-	}
-
-};
-
-class HiActiveCoolingLimit : public CoolingLimits
-{
-	const int lower_limit = 0;
-	const int upper_limit = 45;
-public:
-	Limits l;
-	Limits& setlimit()
-	{
-		l.lowerLimit = lower_limit;
-		l.upperLimit = upper_limit;
-		return l;
-	}
-
-};
-
-class MidActiveCoolingLimit : public CoolingLimits
-{
-	const int lower_limit = 0;
-	const int upper_limit = 40;
-public:
-	Limits l;
-	Limits& setlimit()
-	{
-		l.lowerLimit = lower_limit;
-		l.upperLimit = upper_limit;
-		return l;
-	}
-
-};*/
-
 extern std::vector<Limits*> CoolingBaseClass;
 extern std::vector<void (*)(BreachType)> alertTargetFuncPtrVector;
 void checkAndAlert(
