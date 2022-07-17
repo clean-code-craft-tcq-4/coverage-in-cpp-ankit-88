@@ -38,7 +38,7 @@ TEST_CASE("Test Alert Target and construct message of To Controller") {
 }
 TEST_CASE("Test Alert Target and construct message of To Email") {
 	BatteryCharacter batteryChar {PASSIVE_COOLING,"LI-ION"};
-	checkAndAlert(TO_CONTROLLER, batteryChar, -20 ) ;
-	checkAndAlert(TO_CONTROLLER, batteryChar, 20) ;
-	checkAndAlert(TO_CONTROLLER, batteryChar, 40) ;
+	checkAndAlert(TO_EMAIL, batteryChar, -20 ) ;
+	checkAndAlert(TO_EMAIL, batteryChar, 20) ;
+	checkAndAlert(TO_EMAIL, batteryChar, 40) ;
 }
