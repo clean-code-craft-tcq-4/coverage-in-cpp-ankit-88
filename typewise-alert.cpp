@@ -73,7 +73,6 @@ std::string constructMessage(const char*  recepient, BreachType breachType)
     switch (breachType) {
     case TOO_LOW:
         message.append("To:");
-            message.append("");
         message.append(recepient);
         message.append("\n");
         message.append("Hi, the temperature is too low \n");
