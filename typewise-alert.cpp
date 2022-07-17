@@ -77,7 +77,8 @@ std::string constructMessage(const char*  recepient, BreachType breachType)
     case TOO_HIGH:
         message.append("To:").append(recepient).append("\n").append("Hi, the temperature is too High\n");
         break;
-    case NORMAL:
+    default:
+        //covers normal senario.
         break;
     }
     return message;
