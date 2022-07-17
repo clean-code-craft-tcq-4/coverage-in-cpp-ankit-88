@@ -30,6 +30,15 @@ TEST_CASE("classify Temperature breach with different value") {
 
 }
 
-TEST_CASE("Test construct message function for email Alert") {
-	REQUIRE((constructMessage("abc@gmail.com", TOO_HIGH)).compare("To:abc@gmail.com\nHi, the temperature is too High \n") == 0);
+TEST_CASE("Test Alert Target and construct message of To Controller") {
+	BatteryCharacter batteryChar {PASSIVE_COOLING,"LI-ION"};
+	checkAndAlert(TO_CONTROLLER, batteryChar, -20 ) ;
+	checkAndAlert(TO_CONTROLLER, batteryChar, 20) ;
+	checkAndAlert(TO_CONTROLLER, batteryChar, 40) ;
+}
+TEST_CASE("Test Alert Target and construct message of To Email") {
+	BatteryCharacter batteryChar {PASSIVE_COOLING,"LI-ION"};
+	checkAndAlert(TO_CONTROLLER, batteryChar, -20 ) ;
+	checkAndAlert(TO_CONTROLLER, batteryChar, 20) ;
+	checkAndAlert(TO_CONTROLLER, batteryChar, 40) ;
 }
