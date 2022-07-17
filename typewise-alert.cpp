@@ -72,7 +72,10 @@ std::string constructMessage(const char*  recepient, BreachType breachType)
 
     switch (breachType) {
     case TOO_LOW:
-        message.append("To:").append(recepient).append("\n").append("Hi, the temperature is too low \n");
+        message.append("To:");
+        message.append(recepient);
+        message.append("\n");
+        message.append("Hi, the temperature is too low \n");
         break;
     case TOO_HIGH:
         message.append("To:").append(recepient).append("\n").append("Hi, the temperature is too High\n");
