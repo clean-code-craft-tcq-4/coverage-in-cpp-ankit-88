@@ -71,12 +71,13 @@ std::string constructMessage(const char*  recepient, BreachType breachType)
     const char* errorString[3] = {"Normal","LOW", "HIGH"};
     std::string message {};
 
-    switch (breachType) {
+    switch (breachType) 
+    {
     case NORMAL:
         break;
     default:
-    {    //for all other case covers the vector generic error message
-        std::cout << "insde default";
+    {    
+        //for all other case covers the vector generic error message
         message.append("To:").append(recepient).append("\n").append("Hi, the tempereature is TOO ").append(errorString[breachType]);
     }
     }
