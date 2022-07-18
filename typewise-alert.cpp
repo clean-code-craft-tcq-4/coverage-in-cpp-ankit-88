@@ -68,22 +68,17 @@ std::string constructMessage(const unsigned short header, BreachType breachType)
 }
 std::string constructMessage(const char*  recepient, BreachType breachType)
 {
-    std::cout << "testing receipt "<< ( recepient) << std::endl;
+    const char* errorString[3] = {"Normal","LOW", "HIGH"};
     std::string message {};
 
     switch (breachType) {
-    case TOO_LOW:
-        message.append("To:");
-        message.append(recepient);
-        message.append("\n");
-        message.append("Hi, the temperature is too low \n");
-        break;
-    case TOO_HIGH:
-        message.append("To:").append(recepient).append("\n").append("Hi, the temperature is too High\n");
+    case NORMAL:
         break;
     default:
-        //covers normal senario.
-        break;
+    {    //for all other case covers the vector generic error message
+        std::cout << "insde default";
+        message.append("To:").append(recepient).append("\n").append("Hi, the tempereature is TOO ").append(errorString[breachType]);
+    }
     }
     return message;
 }
