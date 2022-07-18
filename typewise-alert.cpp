@@ -10,12 +10,12 @@ void createCoolingLimitsVector()
     Limits* midActiveCoolingLimit = new Limits{ 0,40 };
 
     // Elements inside Vector to be assigned in same order as ENUM Cooling-Type elements.
-    CoolingLimitVector  { passiveCoolingLimit, hiActiveCoolingLimit, midActiveCoolingLimit };
+    CoolingLimitVector.insert(CoolingLimitVector.end(), { passiveCoolingLimit, hiActiveCoolingLimit, midActiveCoolingLimit });
 }
 void createalertTargetFuncPtrVector()
 {
     // Elements inside Vector to be assigned in same order as ENUM Alert Target elements.
-    alertTargetFuncPtrVector  { sendToController, sendToEmail };
+    alertTargetFuncPtrVector.insert(alertTargetFuncVector.end(), { sendToController, sendToEmail });
 }
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
