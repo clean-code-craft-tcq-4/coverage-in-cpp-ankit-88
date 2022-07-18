@@ -68,7 +68,7 @@ std::string constructMessage(const unsigned short header, BreachType breachType)
 std::string constructMessage(const char*  recepient, BreachType breachType)
 {
     std::cout << "testing receipt "<< ( recepient) << std::endl;
-    std::string message = "";
+    std::string message {};
 
     switch (breachType) {
     case TOO_LOW:
