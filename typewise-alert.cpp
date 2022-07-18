@@ -41,8 +41,8 @@ BreachType classifyTemperatureBreach( CoolingType coolingType, double temperatur
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
-    createCoolingLimitsVector(CoolingLimitVector);
-    createalertTargetFuncPtrVector(alertTargetFuncPtrVector);
+    createCoolingLimitsVector(&CoolingLimitVector);
+    createAlertTargetFuncPtrVector(&alertTargetFuncPtrVector);
     BreachType breachType = classifyTemperatureBreach( batteryChar.coolingType, temperatureInC);
     (* (alertTargetFuncPtrVector.at(alertTarget)))(breachType);
 }
