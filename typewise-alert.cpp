@@ -50,7 +50,8 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
 void sendToController(BreachType breachType) 
 {
     const unsigned short header = 0xfeed;
-    std::string message {constructMessage(header, breachType)};
+    std::string message {}
+    message = constructMessage(header, breachType);
     printToConsole(message);
 }
 
