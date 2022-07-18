@@ -3,19 +3,19 @@
 
 std::vector<Limits*> CoolingLimitVector;
 std::vector<void (*)(BreachType)> alertTargetFuncPtrVector;
-void createCoolingLimitsVector(std::vector<Limits*>* CoolingLimitVector)
+void createCoolingLimitsVector(std::vector<Limits*>* CoolingLimitVectorPtr)
 {
     Limits* passiveCoolingLimit = new Limits{ 0,35 };
     Limits* hiActiveCoolingLimit = new Limits{ 0,45 };
     Limits* midActiveCoolingLimit = new Limits{ 0,40 };
 
     // Elements inside Vector to be assigned in same order as ENUM Cooling-Type elements.
-    CoolingLimitVector->insert(CoolingLimitVector->begin(), { passiveCoolingLimit, hiActiveCoolingLimit, midActiveCoolingLimit });
+    CoolingLimitVectorPtr->insert(CoolingLimitVectorPtr->begin(), { passiveCoolingLimit, hiActiveCoolingLimit, midActiveCoolingLimit });
 }
-void createalertTargetFuncPtrVectorstd::vector<void (*)(BreachType)>* alertTargetFuncPtrVector()
+void createAlertTargetFuncPtrVector(std::vector<void (*)(BreachType)>* alertTargetFuncPtrVectorPtr)
 {
     // Elements inside Vector to be assigned in same order as ENUM Alert Target elements.
-    alertTargetFuncPtrVector->insert(alertTargetFuncPtrVector->begin(), { sendToController, sendToEmail });
+    alertTargetFuncPtrVectorPtr->insert(alertTargetFuncPtrVectorPtr->begin(), { sendToController, sendToEmail });
 }
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
